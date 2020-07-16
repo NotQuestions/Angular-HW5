@@ -1,0 +1,7 @@
+<form #form="ngForm" (ngSubmit)="getPosts()">
+  <select name="comments" [(ngModel)]="id">
+    <option *ngFor="let c of comments" [value]="c.id">Comment {{c.id}}</option>
+  </select>
+  <button>send</button>
+</form>
+<router-outlet></router-outlet>
