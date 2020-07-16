@@ -1,6 +1,29 @@
-<div>
+<div class="main">
+<div >
+  <div class="user-main">
+  <h2>User Info</h2>
+  <div><b>User ID:</b> {{user.id}}</div>
+  <div><b>Name:</b> {{user.name}}</div>
+  <div><b>UserName:</b> {{user.username}}</div>
+  <div><b>Email:</b> {{user.email}}</div>
   <br>
-  <div> Name: {{user.name}}</div>
-  <div>ID: {{user.id}}</div>
-  <div>Email: {{user.email}}</div>
+  <form #form="ngForm" (ngSubmit)="getCommentsOfPost()">
+    <label >Show comments of post </label>
+    <input type="number" placeholder="Enter PostId" [(ngModel)]="id" name="PostId" >
+    <button>Submit</button>
+  </form>
+  </div>
 </div>
+<div style="text-align: center">
+  <h2>Posts of User</h2>
+  <div class="post-main">
+  <div *ngFor="let post of posts" class="post-main-content">
+    <div><b>POST ID:</b> {{post.id}}</div>
+    <div><b>UserID:</b> {{post.userId}}</div>
+    <div><b>Tittle:</b> {{post.title}}</div>
+    <div><b>Body:</b> {{post.body}}</div>
+  </div>
+  </div>
+</div>
+</div>
+<router-outlet></router-outlet>

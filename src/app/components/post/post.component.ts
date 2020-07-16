@@ -21,6 +21,7 @@ export class PostComponent  {
 
   getPosts(): void {
     this.router.navigate(['posts', this.id], {state: {id: this.id}});
-
   }
+
+
 }

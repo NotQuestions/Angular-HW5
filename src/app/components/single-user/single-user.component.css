@@ -1,0 +1,21 @@
+.main{
+  display: flex;
+}
+.user-main{
+  border: black solid 2px;
+  margin: 10px;
+  padding: 10px;
+}
+.post-main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.post-main-content{
+  border: red solid 2px;
+  text-align: left;
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  overflow: auto;
+}
