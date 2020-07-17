@@ -54,7 +54,7 @@ import {CommentsPostComponent} from './components/comments-post/comments-post.co
                   path: 'comments/:id',
                   component: CommentsPostComponent,
                   resolve: {
-                    commentsPostResolve: CommentService
+                    commentsPostResolve: CommenЛtService
                   }
                 }
               ]
