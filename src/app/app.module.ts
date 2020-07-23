@@ -10,7 +10,7 @@ import {PostService} from './service/post/post.service';
 import {CommentService} from './service/comment/comment.service';
 import { PostComponent } from './components/post/post.component';
 import { CommentComponent } from './components/comment/comment.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SingleUserComponent } from './components/single-user/single-user.component';
 import {SingleUserResolveService} from './service/user/single-user-resolve.service';
 import {SinglePostResolveService} from './service/post/single-post-resolve.service';
@@ -35,21 +35,24 @@ import { SingleCommentComponent } from './components/single-comment/single-comme
     FormsModule,
     RouterModule.forRoot(
       [
-        {path: 'users',
+        {
+          path: 'users',
           component: UserComponent,
           resolve: {usersResolve: UserService},
           children: [
             {path: ':id', component: SingleUserComponent, resolve: {singleUserResolve: SingleUserResolveService}}
           ]
         },
-        {path: 'posts',
+        {
+          path: 'posts',
           component: PostComponent,
           resolve: {postsResolve: PostService},
           children: [
             {path: ':id', component: SinglePostComponent, resolve: {singlePostResolve: SinglePostResolveService}}
           ]
         },
-        {path: 'comments',
+        {
+          path: 'comments',
           component: CommentComponent,
           resolve: {commentsResolve: CommentService},
           children: [
@@ -57,6 +60,7 @@ import { SingleCommentComponent } from './components/single-comment/single-comme
           ]
         },
       ]),
+    ReactiveFormsModule,
   ],
   providers: [UserService, PostService, CommentService, SingleUserResolveService, SinglePostResolveService, SingleCommentResolveService],
   bootstrap: [AppComponent]

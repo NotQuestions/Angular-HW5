@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/User';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Post} from '../../models/Post';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-post',
@@ -10,17 +11,21 @@ import {Post} from '../../models/Post';
 })
 export class PostComponent  {
   posts: Post[];
-  id: number;
+  id: FormControl = new FormControl('', Validators.required);
+  form: FormGroup;
   constructor( private activatedRoute: ActivatedRoute, private router: Router) {
     activatedRoute.data.subscribe(value => {
       this.posts = value.postsResolve;
+    });
+    this.form = new FormGroup({
+      id: this.id,
     });
   }
 
 
 
   getPosts(): void {
-    this.router.navigate(['posts', this.id], {state: {id: this.id}});
+    this.router.navigate(['posts', this.id.value], {state: {id: this.id.value}});
 
   }
 }

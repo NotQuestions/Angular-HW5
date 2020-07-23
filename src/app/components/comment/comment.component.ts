@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Post} from '../../models/Post';
+import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Comment} from '../../models/Comment';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-comment',
@@ -11,15 +11,19 @@ import {Comment} from '../../models/Comment';
 export class CommentComponent {
 
   comments: Comment[];
-  id: number;
+  id: FormControl = new FormControl('', Validators.required);
+  form: FormGroup;
   constructor( private activatedRoute: ActivatedRoute, private router: Router) {
+    this.form = new FormGroup({
+      id: this.id,
+    });
     activatedRoute.data.subscribe(value => {
       this.comments = value.commentsResolve;
     });
   }
 
-  getPosts(): void {
-    this.router.navigate(['comments', this.id], {state: {id: this.id}});
+  getComment(): void {
+    this.router.navigate(['comments', this.id.value], {state: {id: this.id.value}});
 
   }
 

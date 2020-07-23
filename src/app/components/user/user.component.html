@@ -1,8 +1,8 @@
 
-<form #form="ngForm" (ngSubmit)="getUser()">
-<select name="users" [(ngModel)]="id">
-  <option *ngFor="let u of users" [value]="u.id">User {{u.id}}</option>
+<form [formGroup]="form">
+<select name="users" [formControl]="id" >
+  <option *ngFor="let u of users" [ngValue]="u.id" >User {{u.id}}</option>
 </select>
-  <button>send</button>
+  <button (click)="getUser()" *ngIf="form.controls.id.valid">send</button>
 </form>
 <router-outlet></router-outlet>
