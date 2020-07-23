@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Post} from '../../models/Post';
+import { Component } from '@angular/core';
 import {SingleUserResolveService} from '../../service/user/single-user-resolve.service';
 import {ActivatedRoute} from '@angular/router';
 import {Comment} from '../../models/Comment';

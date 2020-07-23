@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {User} from '../../models/User';
+import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Post} from '../../models/Post';
 import {FormControl, FormGroup, Validators} from '@angular/forms';

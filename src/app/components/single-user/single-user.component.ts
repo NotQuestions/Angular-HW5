@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../service/user/user.service';
 import {User} from '../../models/User';
 import {ActivatedRoute, Resolve} from '@angular/router';
 import {SingleUserResolveService} from '../../service/user/single-user-resolve.service';
